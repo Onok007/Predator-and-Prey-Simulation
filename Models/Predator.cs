@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace PredatorAndPreySimulation.Models
 {
@@ -153,9 +154,27 @@ namespace PredatorAndPreySimulation.Models
         /// </summary>
         private (int x, int y) MoveTowardsTarget((int x, int y) target)
         {
-            int dx = target.x > X ? 1 : target.x < X ? -1 : 0;
-            int dy = target.y > Y ? 1 : target.y < Y ? -1 : 0;
-            return (X + dx, Y + dy);
+            int dx = target.x - X;
+            int dy = target.y - Y;
+
+            // If horizontal distance is larger, move horizontally
+            if (Math.Abs(dx) > Math.Abs(dy))
+            {
+                return (X + Math.Sign(dx), Y);
+            }
+            // If vertical distance is larger, move vertically
+            else if (Math.Abs(dy) > Math.Abs(dx))
+            {
+                return (X, Y + Math.Sign(dy));
+            }
+            else
+            {
+                // Distances are equal -> pick one randomly (to avoid diagonal)
+                if (new Random().Next(2) == 0)
+                    return (X + Math.Sign(dx), Y);
+                else
+                    return (X, Y + Math.Sign(dy));
+            }
         }
 
         /// <summary>
