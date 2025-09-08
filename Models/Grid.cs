@@ -7,7 +7,7 @@
     public class Grid
     {
         /// <summary>
-        /// Size of the grid (width and height, since the grid is square).
+        /// Size of the grid (grid is square).
         /// </summary>
         public int Size { get; }
 
