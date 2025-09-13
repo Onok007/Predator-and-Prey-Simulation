@@ -208,7 +208,7 @@ namespace PredatorAndPreySimulation.Models
         /// </summary>
         public static Simulation FromData(SimulationData data)
         {
-            var sim = new Simulation(data.Config, data.GridSize);
+            var sim = new Simulation(data.Config, data.GridSize, preyCount:0, predatorCount:0, obstacleCount:0);
 
             foreach (var od in data.Organisms)
             {
