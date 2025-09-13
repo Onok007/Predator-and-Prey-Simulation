@@ -14,7 +14,7 @@
         private System.Windows.Forms.Button btnStep;
         private System.Windows.Forms.Button btnReset;
 
-        private System.Windows.Forms.GroupBox grpParams;
+        private System.Windows.Forms.GroupBox grpInitParams;
         private System.Windows.Forms.Label lblGrid;
         private System.Windows.Forms.NumericUpDown nudGridSize;
         private System.Windows.Forms.Label lblPrey;
@@ -23,6 +23,9 @@
         private System.Windows.Forms.NumericUpDown nudPredators;
         private System.Windows.Forms.Label lblObs;
         private System.Windows.Forms.NumericUpDown nudObstacles;
+        private System.Windows.Forms.Button btnNewSimulation;
+
+        private System.Windows.Forms.GroupBox grpRuntimeParams;
         private System.Windows.Forms.Label lblOverpop;
         private System.Windows.Forms.NumericUpDown nudOverpop;
         private System.Windows.Forms.Label lblReproRate;
@@ -31,7 +34,7 @@
         private System.Windows.Forms.NumericUpDown nudEnergyGain;
         private System.Windows.Forms.Label lblEnergyRepro;
         private System.Windows.Forms.NumericUpDown nudEnergyRepro;
-        private System.Windows.Forms.Button btnApplyParams;
+        private System.Windows.Forms.Button btnApplyRuntimeParams;
 
         private System.Windows.Forms.GroupBox grpEditor;
         private System.Windows.Forms.RadioButton radioPrey;
@@ -60,7 +63,7 @@
             this.btnPause = new System.Windows.Forms.Button();
             this.btnStep = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
-            this.grpParams = new System.Windows.Forms.GroupBox();
+            this.grpInitParams = new System.Windows.Forms.GroupBox();
             this.lblGrid = new System.Windows.Forms.Label();
             this.nudGridSize = new System.Windows.Forms.NumericUpDown();
             this.lblPrey = new System.Windows.Forms.Label();
@@ -69,6 +72,8 @@
             this.nudPredators = new System.Windows.Forms.NumericUpDown();
             this.lblObs = new System.Windows.Forms.Label();
             this.nudObstacles = new System.Windows.Forms.NumericUpDown();
+            this.btnNewSimulation = new System.Windows.Forms.Button();
+            this.grpRuntimeParams = new System.Windows.Forms.GroupBox();
             this.lblOverpop = new System.Windows.Forms.Label();
             this.nudOverpop = new System.Windows.Forms.NumericUpDown();
             this.lblReproRate = new System.Windows.Forms.Label();
@@ -77,7 +82,7 @@
             this.nudEnergyGain = new System.Windows.Forms.NumericUpDown();
             this.lblEnergyRepro = new System.Windows.Forms.Label();
             this.nudEnergyRepro = new System.Windows.Forms.NumericUpDown();
-            this.btnApplyParams = new System.Windows.Forms.Button();
+            this.btnApplyRuntimeParams = new System.Windows.Forms.Button();
             this.grpEditor = new System.Windows.Forms.GroupBox();
             this.radioPrey = new System.Windows.Forms.RadioButton();
             this.radioPred = new System.Windows.Forms.RadioButton();
@@ -93,7 +98,8 @@
             this.splitContainer1.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.grpControl.SuspendLayout();
-            this.grpParams.SuspendLayout();
+            this.grpInitParams.SuspendLayout();
+            this.grpRuntimeParams.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudGridSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrey)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPredators)).BeginInit();
@@ -122,7 +128,8 @@
             this.panelLeft.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.panelLeft.WrapContents = false;
             this.panelLeft.Controls.Add(this.grpControl);
-            this.panelLeft.Controls.Add(this.grpParams);
+            this.panelLeft.Controls.Add(this.grpInitParams);
+            this.panelLeft.Controls.Add(this.grpRuntimeParams);
             this.panelLeft.Controls.Add(this.grpEditor);
             this.panelLeft.Controls.Add(this.grpFile);
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
@@ -185,32 +192,24 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // grpParams
-            // 
-            this.grpParams.Controls.Add(this.lblGrid);
-            this.grpParams.Controls.Add(this.nudGridSize);
-            this.grpParams.Controls.Add(this.lblPrey);
-            this.grpParams.Controls.Add(this.nudPrey);
-            this.grpParams.Controls.Add(this.lblPred);
-            this.grpParams.Controls.Add(this.nudPredators);
-            this.grpParams.Controls.Add(this.btnApplyParams);
-            this.grpParams.Controls.Add(this.lblObs);
-            this.grpParams.Controls.Add(this.nudObstacles);
-            this.grpParams.Controls.Add(this.lblOverpop);
-            this.grpParams.Controls.Add(this.nudOverpop);
-            this.grpParams.Controls.Add(this.lblReproRate);
-            this.grpParams.Controls.Add(this.nudReproRate);
-            this.grpParams.Controls.Add(this.lblEnergyGain);
-            this.grpParams.Controls.Add(this.nudEnergyGain);
-            this.grpParams.Controls.Add(this.lblEnergyRepro);
-            this.grpParams.Controls.Add(this.nudEnergyRepro);
-            this.grpParams.Location = new System.Drawing.Point(11, 144);
-            this.grpParams.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
-            this.grpParams.Name = "grpParams";
-            this.grpParams.Size = new System.Drawing.Size(250, 350);
-            this.grpParams.TabIndex = 1;
-            this.grpParams.TabStop = false;
-            this.grpParams.Text = "Parametry";
+            // grpInitParams
+            //
+            this.grpInitParams.Controls.Add(this.lblGrid);
+            this.grpInitParams.Controls.Add(this.nudGridSize);
+            this.grpInitParams.Controls.Add(this.lblPrey);
+            this.grpInitParams.Controls.Add(this.nudPrey);
+            this.grpInitParams.Controls.Add(this.lblPred);
+            this.grpInitParams.Controls.Add(this.nudPredators);
+            this.grpInitParams.Controls.Add(this.lblObs);
+            this.grpInitParams.Controls.Add(this.nudObstacles);
+            this.grpInitParams.Controls.Add(this.btnNewSimulation);
+            this.grpInitParams.Location = new System.Drawing.Point(11, 144);
+            this.grpInitParams.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.grpInitParams.Name = "grpInitParams";
+            this.grpInitParams.Size = new System.Drawing.Size(250, 220);
+            this.grpInitParams.TabIndex = 1;
+            this.grpInitParams.TabStop = false;
+            this.grpInitParams.Text = "Počáteční parametry";
             // 
             // lblGrid
             // 
@@ -286,17 +285,46 @@
             this.nudObstacles.Name = "nudObstacles";
             this.nudObstacles.Size = new System.Drawing.Size(90, 23);
             //
+            // btnNewSimulation
+            //
+            this.btnNewSimulation.Location = new System.Drawing.Point(15, 180);
+            this.btnNewSimulation.Name = "btnNewSimulation";
+            this.btnNewSimulation.Size = new System.Drawing.Size(215, 30);
+            this.btnNewSimulation.TabIndex = 6;
+            this.btnNewSimulation.Text = "Nová simulace";
+            this.btnNewSimulation.UseVisualStyleBackColor = true;
+            this.btnNewSimulation.Click += new System.EventHandler(this.btnApplyInitParams_Click);
+            //
+            // grpRuntimeParams
+            //
+            this.grpRuntimeParams.Controls.Add(this.lblOverpop);
+            this.grpRuntimeParams.Controls.Add(this.nudOverpop);
+            this.grpRuntimeParams.Controls.Add(this.lblReproRate);
+            this.grpRuntimeParams.Controls.Add(this.nudReproRate);
+            this.grpRuntimeParams.Controls.Add(this.lblEnergyGain);
+            this.grpRuntimeParams.Controls.Add(this.nudEnergyGain);
+            this.grpRuntimeParams.Controls.Add(this.lblEnergyRepro);
+            this.grpRuntimeParams.Controls.Add(this.nudEnergyRepro);
+            this.grpRuntimeParams.Controls.Add(this.btnApplyRuntimeParams);
+            this.grpRuntimeParams.Location = new System.Drawing.Point(11, 380);
+            this.grpRuntimeParams.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+            this.grpRuntimeParams.Name = "grpRuntimeParams";
+            this.grpRuntimeParams.Size = new System.Drawing.Size(250, 220);
+            this.grpRuntimeParams.TabIndex = 2;
+            this.grpRuntimeParams.TabStop = false;
+            this.grpRuntimeParams.Text = "Parametry";
+            //
             // lblOverpop
             //
             this.lblOverpop.AutoSize = true;
-            this.lblOverpop.Location = new System.Drawing.Point(12, 168);
+            this.lblOverpop.Location = new System.Drawing.Point(12, 28);
             this.lblOverpop.Name = "lblOverpop";
             this.lblOverpop.Size = new System.Drawing.Size(120, 15);
             this.lblOverpop.Text = "Limit přemnož. (0=off)";
             //
             // nudOverpop
             //
-            this.nudOverpop.Location = new System.Drawing.Point(140, 166);
+            this.nudOverpop.Location = new System.Drawing.Point(140, 26);
             this.nudOverpop.Minimum = 0;
             this.nudOverpop.Maximum = 8;
             this.nudOverpop.Value = 0;
@@ -306,14 +334,14 @@
             // lblReproRate
             //
             this.lblReproRate.AutoSize = true;
-            this.lblReproRate.Location = new System.Drawing.Point(12, 203);
+            this.lblReproRate.Location = new System.Drawing.Point(12, 63);
             this.lblReproRate.Name = "lblReproRate";
             this.lblReproRate.Size = new System.Drawing.Size(122, 15);
             this.lblReproRate.Text = "Rozmnožování (tahy)";
             //
             // nudReproRate
             //
-            this.nudReproRate.Location = new System.Drawing.Point(140, 201);
+            this.nudReproRate.Location = new System.Drawing.Point(140, 61);
             this.nudReproRate.Minimum = 1;
             this.nudReproRate.Maximum = 100;
             this.nudReproRate.Value = 8;
@@ -323,47 +351,46 @@
             // lblEnergyGain
             //
             this.lblEnergyGain.AutoSize = true;
-            this.lblEnergyGain.Location = new System.Drawing.Point(12, 238);
+            this.lblEnergyGain.Location = new System.Drawing.Point(12, 98);
             this.lblEnergyGain.Name = "lblEnergyGain";
             this.lblEnergyGain.Size = new System.Drawing.Size(121, 15);
             this.lblEnergyGain.Text = "Energie za kořist";
             //
             // nudEnergyGain
             //
-            this.nudEnergyGain.Location = new System.Drawing.Point(140, 236);
+            this.nudEnergyGain.Location = new System.Drawing.Point(140, 96);
             this.nudEnergyGain.Minimum = 1;
             this.nudEnergyGain.Maximum = 100;
             this.nudEnergyGain.Value = 4;
             this.nudEnergyGain.Name = "nudEnergyGain";
             this.nudEnergyGain.Size = new System.Drawing.Size(90, 23);
-
             //
             // lblEnergyRepro
             //
             this.lblEnergyRepro.AutoSize = true;
-            this.lblEnergyRepro.Location = new System.Drawing.Point(12, 273);
+            this.lblEnergyRepro.Location = new System.Drawing.Point(12, 133);
             this.lblEnergyRepro.Name = "lblEnergyRepro";
             this.lblEnergyRepro.Size = new System.Drawing.Size(111, 15);
             this.lblEnergyRepro.Text = "Energie k rozmnož.";
             //
             // nudEnergyRepro
             //
-            this.nudEnergyRepro.Location = new System.Drawing.Point(140, 271);
+            this.nudEnergyRepro.Location = new System.Drawing.Point(140, 131);
             this.nudEnergyRepro.Minimum = 1;
             this.nudEnergyRepro.Maximum = 500;
             this.nudEnergyRepro.Value = 20;
             this.nudEnergyRepro.Name = "nudEnergyRepro";
             this.nudEnergyRepro.Size = new System.Drawing.Size(90, 23);
             //
-            // btnApplyParams
+            // btnApplyRuntimeParams
             //
-            this.btnApplyParams.Location = new System.Drawing.Point(15, 310);
-            this.btnApplyParams.Name = "btnApplyParams";
-            this.btnApplyParams.Size = new System.Drawing.Size(215, 30);
-            this.btnApplyParams.TabIndex = 6;
-            this.btnApplyParams.Text = "Použít parametry";
-            this.btnApplyParams.UseVisualStyleBackColor = true;
-            this.btnApplyParams.Click += new System.EventHandler(this.btnApplyParams_Click);    
+            this.btnApplyRuntimeParams.Location = new System.Drawing.Point(15, 180);
+            this.btnApplyRuntimeParams.Name = "btnApplyRuntimeParams";
+            this.btnApplyRuntimeParams.Size = new System.Drawing.Size(215, 30);
+            this.btnApplyRuntimeParams.TabIndex = 6;
+            this.btnApplyRuntimeParams.Text = "Použít parametry";
+            this.btnApplyRuntimeParams.UseVisualStyleBackColor = true;
+            this.btnApplyRuntimeParams.Click += new System.EventHandler(this.btnApplyRuntimeParams_Click);
             // 
             // grpEditor
             // 
@@ -489,8 +516,10 @@
             this.splitContainer1.ResumeLayout(false);
             this.panelLeft.ResumeLayout(false);
             this.grpControl.ResumeLayout(false);
-            this.grpParams.ResumeLayout(false);
-            this.grpParams.PerformLayout();
+            this.grpInitParams.ResumeLayout(false);
+            this.grpInitParams.PerformLayout();
+            this.grpRuntimeParams.ResumeLayout(false);
+            this.grpRuntimeParams.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudGridSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrey)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPredators)).EndInit();

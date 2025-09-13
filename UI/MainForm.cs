@@ -105,7 +105,7 @@ namespace PredatorAndPreySimulation.UI
         /// <summary>
         /// Apply parameters from UI (grid size, counts, config) and restart simulation.
         /// </summary>
-        private void btnApplyParams_Click(object sender, EventArgs e)
+        private void btnApplyInitParams_Click(object sender, EventArgs e)
         {
             int gridSize = (int)nudGridSize.Value;
             int preyCount = (int)nudPrey.Value;
@@ -122,6 +122,21 @@ namespace PredatorAndPreySimulation.UI
             simulation = new Simulation(simulationConfig, gridSize, preyCount, predatorCount, obstacleCount);
 
             panelCanvas.Invalidate();
+        }
+
+        private void btnApplyRuntimeParams_Click(object sender, EventArgs e)
+        {
+            if (!simulation.IsRunning)
+            {
+                simulationConfig.PreyOverpopulationLimit = (int)nudOverpop.Value;
+                simulationConfig.PreyReproductionRate = (int)nudReproRate.Value;
+                simulationConfig.PredatorEnergyGain = (int)nudEnergyGain.Value;
+                simulationConfig.PredatorReproductionThreshold = (int)nudEnergyRepro.Value;
+            }
+            else
+            {
+                MessageBox.Show("Změnu parametrů proveďte prosím v režimu Pause.");
+            }
         }
 
         /// <summary>
