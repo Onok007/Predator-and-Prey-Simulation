@@ -208,6 +208,10 @@ namespace PredatorAndPreySimulation.UI
                     if (data != null)
                     {
                         simulation = Simulation.FromData(data);
+                        nudOverpop.Value = data.Config.PreyOverpopulationLimit;
+                        nudReproRate.Value = data.Config.PreyReproductionRate;
+                        nudEnergyGain.Value = data.Config.PredatorEnergyGain;
+                        nudEnergyRepro.Value = data.Config.PredatorReproductionThreshold;
                         panelCanvas.Invalidate();
                     }
                 }
